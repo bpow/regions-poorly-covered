@@ -28,43 +28,69 @@ in your executable path, then you may need to execute `/path/to/python2.7 region
 
 Required options:
 
-* `-b` <bamfiles.list>
+* `-b <bamfiles.list>`
+
   A file containing the names of the bam files to analyze, one per line
-* `-i` <intervals>
+
+* `-i <intervals>`
+
   A GATK-styled interval_list file or (0-based) bed file of intervals of interest
-* `-o` <output_basename>
+
+* `-o <output_basename>`
+
   The prefix to use for output files
-* `-r` <reference.fasta>
+
+* `-r <reference.fasta>`
+
   The reference genome sequence file against which to the bam files were aligned
   (GATK uses this to determine chromosome sequence lengths. The fasta file must
   have an associated ".dict" file per the GATK documentation)
 
 Options with reasonable defaults:
 
-* `-c` <coverage>
+* `-c <coverage>`
+
   The threshold for "poor coverage" (defaults to 20)
-* `-p` <percent>
+
+* `-p <percent>`
+
   Only output lines where percentage of samples with coverage < "-c" is above this value (defaults to 90)
-* `-q` <base_quality>
+
+* `-q <base_quality>`
+
   Minimum base quality to be considered for coverage calculations (--minBaseQuality in DoC; defaults to 20)
-* `-Q` <mapping_quality>
+
+* `-Q <mapping_quality>`
+
   Minimum mapping quality to be considered for coverage calculations (--minMappingQuality in DoC; defaults to 20)
-* `-m` <memory>
+
+* `-m <memory>`
+
   Memory to allocate the the java process (used as java "-Xmx" option, defaults to 18g)
-* `-t` <threads>
+
+* `-t <threads>`
+
   Number of threads to use in DepthOfCoverage (defaults to 1, but should scale well to more threads...)
-* `-g` <gatk.jar>
+
+* `-g <gatk.jar>`
+
   Path to the GATK '.jar' file (defaults to `GenomeAnalysisTK.jar` in the working directory)
-* `-j` <java_executable>
+
+* `-j <java_executable>`
+
   Defaults to the `java` executable in your current $PATH
 
 Special options:
-* `-s` <previous_coverage_file>
+
+* `-s <previous_coverage_file>`
+
   Skip running DepthOfCoverage (the longest part of the whole task), by using an existing
   '.coverage' or '.coverage.gz' file. This could be useful if you want to re-filter with
   different values of `-c` or `-p` (if you want to change, `-q` or `-Q`, then DoC needs
   to be run with those different paramenters).
+
 * `-f`
+
   Use a FIFO to allow the '.coverage' file to be compressed on-the-fly before being written
   to disk. This would be of benefit if IO is more limiting than CPU (which it often is,
   especially on network filesystems). If unspecified, the '.coverage' file will be
