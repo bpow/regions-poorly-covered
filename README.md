@@ -116,7 +116,7 @@ running without it.
 
 ## TL;DR
 
-Try running this (replacing things between <angle-brackets> with appropriate file names):
+Try running this (replacing things between `<angle-brackets>` with appropriate file names):
 
 ```
 ./regions-poorly-covered.py -b <bamfile.list> -r <reference.fasta> -i ACMG_IF_2014_inHGMD.0based.bed -o <basename>.acmg -c 20 -p 20 -q 20 -Q 20 -m 18g -t <threads> -g <GenomeAnalysisTK.jar> -f
