@@ -70,7 +70,10 @@ Options with reasonable defaults:
 
 * `-t <threads>`
 
-  Number of threads to use in DepthOfCoverage (defaults to 1, but should scale well to more threads...)
+  Number of threads to use in DepthOfCoverage (defaults to 1, but should scale well to more threads...).
+  
+  **WARNING:** if the value for `threads` is set too high, then you may get a java exception about too many
+  files being open. I use 4 threads for 200 samples on a cluster without difficulty.
 
 * `-g <gatk.jar>`
 
